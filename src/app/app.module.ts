@@ -8,12 +8,14 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { TableComponent } from './table/table.component';
+import { LoadingSpinnerComponent } from './shared/loading-spinner/loading-spinner.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SearchComponent,
-    TableComponent
+    TableComponent,
+    LoadingSpinnerComponent
   ],
   imports: [
     BrowserModule,

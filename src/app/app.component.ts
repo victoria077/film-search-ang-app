@@ -13,12 +13,17 @@ export class AppComponent {
   private searchComp: SearchComponent;
   constructor(private http: HttpClient) { }
   films: any = [];
+  isLoading = false;
   onSearch() {
-    console.log(this.searchComp.title);
+    this.isLoading = true;
     this.http.get('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?i=tt3896198&apikey=524c947d&s=' + this.searchComp.title)
       .subscribe((res: any) => {
-        console.log(res);
         this.films = res.Search;
+        this.isLoading = false;
+      },
+      error => {
+        console.log(error);
+        this.isLoading = false;
       });
   }
 }

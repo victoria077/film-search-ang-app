@@ -1,6 +1,7 @@
-<!-- <app-search></app-search> -->
-
 <div class="container">
   <search-comp (onSearch)="onSearch($event)"></search-comp>
-  <table-comp  [movies]="films"></table-comp>
+  <div style="text-align: center;" *ngIf="isLoading">
+      <loading-spinner-comp></loading-spinner-comp>
+  </div>
+  <table-comp  [movies]="films" *ngIf="!isLoading"></table-comp>
 </div>
