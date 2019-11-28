@@ -1,17 +1,6 @@
 <!-- <app-search></app-search> -->
 
 <div class="container">
-  <app-search (onSearch)="onSearch($event)"></app-search>
-  <table class="table">
-    <tr>
-      <th>Title</th>
-      <th>Year</th>
-      <th>Poster</th>
-    </tr>
-    <tr *ngFor="let film of films">
-      <td class="title">{{ film.Title }}</td>
-      <td class="year">{{ film.Year }}</td>
-      <td><img [src]="film.Poster" alt="" /></td>
-    </tr>
-  </table>
+  <search-comp (onSearch)="onSearch($event)"></search-comp>
+  <table-comp  [movies]="films"></table-comp>
 </div>
