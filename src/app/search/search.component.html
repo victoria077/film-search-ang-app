@@ -1,4 +1,11 @@
-<div class="container">
-      <input matInput placeholder="Input" class="form-control col-lg-6 col-md-6">
-      <button class="btn btn-primary" type="button">Search</button>
+<div class="form">
+  <input
+    matInput
+    placeholder="Input"
+    [(ngModel)]="title"
+    class="form-control col-lg-6 col-md-6"
+  />
+  <button class="btn btn-primary" type="button" (click)="search()">
+    Search
+  </button>
 </div>

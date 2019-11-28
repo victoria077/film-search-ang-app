@@ -1,22 +1,12 @@
 <!-- <app-search></app-search> -->
 
 <div class="container">
-  <div class="form">
-    <input
-      matInput
-      placeholder="Input"
-      [(ngModel)]="name"
-      class="form-control col-lg-6 col-md-6"
-    />
-    <button class="btn btn-primary" type="button" (click)="onSearch()">
-      Search
-    </button>
-  </div>
+  <app-search (onSearch)="onSearch($event)"></app-search>
   <table class="table">
     <tr>
-      <th>Company</th>
-      <th>Contact</th>
-      <th>Country</th>
+      <th>Title</th>
+      <th>Year</th>
+      <th>Poster</th>
     </tr>
     <tr *ngFor="let film of films">
       <td class="title">{{ film.Title }}</td>

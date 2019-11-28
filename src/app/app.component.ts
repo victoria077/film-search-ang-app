@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Component, ViewChild } from '@angular/core';
+import { HttpClient} from '@angular/common/http';
+import { SearchComponent } from './search/search.component';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +9,17 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 
 export class AppComponent {
-  constructor(private http: HttpClient) {}
-
-  name = '';
+  @ViewChild(SearchComponent, { static: false })
+  private searchComp: SearchComponent;
+  constructor(private http: HttpClient) { }
   films: any = [];
   onSearch() {
-    this.http.get('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?i=tt3896198&apikey=524c947d&s=batman')
-    .subscribe((res: any) => {
-      console.log(res.Search);
-      this.films = res.Search;
-    });
+    console.log(this.searchComp.title);
+    this.http.get('https://cors-anywhere.herokuapp.com/http://www.omdbapi.com/?i=tt3896198&apikey=524c947d&s=' + this.searchComp.title)
+      .subscribe((res: any) => {
+        console.log(res);
+        this.films = res.Search;
+      });
   }
 }
 

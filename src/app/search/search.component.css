@@ -1,0 +1,9 @@
+.form{
+    padding-top: 50px;
+    display: flex;
+}
+
+.btn{
+    width: 160px;
+    margin-left: 50px;
+}
